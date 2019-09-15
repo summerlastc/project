@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://www.xuecheng.com/plugins/normalize-css/normalize.css" />
+    <link rel="stylesheet" href="http://www.xuecheng.com/plugins/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="http://www.xuecheng.com/css/page-learing-index.css" />
+    <link rel="stylesheet" href="http://www.xuecheng.com/css/page-header.css" />
+</head>
+<body >
+<div class="banner-roll">
+    <div class="banner-item">
+
+
+        <div class="item" style="background-image: url(http://www.xuecheng.com/img/widget-bannerB.jpg);"></div>
+
+
+        <div class="item" style="background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1568596633846&di=04182a39b403392936146634e686c776&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2Fb3744c3e8c36305bd6d05e176a62e417d8447490.jpg);"></div>
+
+
+        <div class="item" style="background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1568585831296&di=32031c0e076dd4672763a690499dcf16&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2Fd009b3de9c82d158f2e7318f8d0a19d8bc3e42a2.jpg);"></div>
+
+
+
+
+
+
+    </div>
+    <div class="indicators"></div>
+</div>
+<script type="text/javascript" src="http://www.xuecheng.com/plugins/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="http://www.xuecheng.com/plugins/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript">
+    var tg = $('.banner-item .item');
+    var num = 0;
+    for (i = 0; i < tg.length; i++) {
+        $('.indicators').append('<span></span>');
+        $('.indicators').find('span').eq(num).addClass('active');
+    }
+
+    function roll() {
+        tg.eq(num).animate({
+            'opacity': '1',
+            'z-index': num
+        }, 1000).siblings().animate({
+            'opacity': '0',
+            'z-index': 0
+        }, 1000);
+        $('.indicators').find('span').eq(num).addClass('active').siblings().removeClass('active');
+        if (num >= tg.length - 1) {
+            num = 0;
+        } else {
+            num++;
+        }
+    }
+    $('.indicators').find('span').click(function() {
+        num = $(this).index();
+        roll();
+    });
+    var timer = setInterval(roll, 3000);
+    $('.banner-item').mouseover(function() {
+        clearInterval(timer)
+    });
+    $('.banner-item').mouseout(function() {
+        timer = setInterval(roll, 3000)
+    });
+</script>
+</body>
+</html>
