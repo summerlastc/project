@@ -179,7 +179,7 @@ public class PageService {
 
 
 
-    //页面静态化
+    //页面静态化，传一个页面id实现静态化，获取一个基于页面生成的html
     public String getPageHtml(String pageId){
         //获取页面模型数据
         Map model = this.getModelByPageId(pageId);
