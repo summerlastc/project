@@ -33,7 +33,10 @@ public class CmsSite {
     private String sitePort;
     //站点访问地址
     private String siteWebPath;
+    //物理路径
+    private String sitePhysicalPath;
     //创建时间
     private Date siteCreateTime;
+
 
 }

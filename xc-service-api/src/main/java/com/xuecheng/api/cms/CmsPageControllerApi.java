@@ -35,5 +35,7 @@ public CmsPage findById(String id);
     public ResponseResult delete(String id);
 
 
+    @ApiOperation("发布页面")
+    public ResponseResult post(String pageId);
 
 }
